@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/op_add" android:title="+" />
+    <item android:id="@+id/op_sub" android:title="-" />
+    <item android:id="@+id/op_mul" android:title="*" />
+    <item android:id="@+id/op_div" android:title="/" />
+    <item android:id="@+id/op_cls" android:title="C" />
+</menu>
