@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/op_add" android:title="+" />
-    <item android:id="@+id/op_sub" android:title="-" />
-    <item android:id="@+id/op_mul" android:title="*" />
-    <item android:id="@+id/op_div" android:title="/" />
-    <item android:id="@+id/op_cls" android:title="C" />
+    <item android:id="@+id/add" android:title="+"/>
+    <item android:id="@+id/sub" android:title="-"/>
+    <item android:id="@+id/mul" android:title="*"/>
+    <item android:id="@+id/div" android:title="/"/>
+    <item android:id="@+id/clear" android:title="C"/>
 </menu>

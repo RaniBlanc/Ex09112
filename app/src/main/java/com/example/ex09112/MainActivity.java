@@ -1,6 +1,5 @@
 package com.example.ex09112;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,16 +7,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
-    EditText etNum1, etNum2;
+
+    EditText et1, et2;
     TextView tvResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etNum1 = findViewById(R.id.etNum1);
-        etNum2 = findViewById(R.id.etNum2);
+
+        et1 = findViewById(R.id.et1);
+        et2 = findViewById(R.id.et2);
         tvResult = findViewById(R.id.tvResult);
     }
 
@@ -29,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        String s1 = etNum1.getText().toString();
-        String s2 = etNum2.getText().toString();
 
-        if (item.getItemId() == R.id.op_cls) {
-            etNum1.setText("");
-            etNum2.setText("");
+        String s1 = et1.getText().toString();
+        String s2 = et2.getText().toString();
+
+        if (item.getItemId() == R.id.clear) {
+            et1.setText("");
+            et2.setText("");
             tvResult.setText("");
             return true;
         }
@@ -44,17 +48,26 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        double n1 = Double.parseDouble(s1);
-        double n2 = Double.parseDouble(s2);
-        int id = item.getItemId();
+        double a = Double.parseDouble(s1);
+        double b = Double.parseDouble(s2);
 
-        if (id == R.id.op_add) tvResult.setText("Result: " + (n1 + n2));
-        else if (id == R.id.op_sub) tvResult.setText("Result: " + (n1 - n2));
-        else if (id == R.id.op_mul) tvResult.setText("Result: " + (n1 * n2));
-        else if (id == R.id.op_div) {
-            if (n2 == 0) tvResult.setText("Cannot divide by zero");
-            else tvResult.setText("Result: " + (n1 / n2));
+        double result = 0;
+
+        if (item.getItemId() == R.id.add) {
+            result = a + b;
+        } else if (item.getItemId() == R.id.sub) {
+            result = a - b;
+        } else if (item.getItemId() == R.id.mul) {
+            result = a * b;
+        } else if (item.getItemId() == R.id.div) {
+            if (b == 0) {
+                Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            result = a / b;
         }
+
+        tvResult.setText(String.valueOf(result));
         return true;
     }
 }
